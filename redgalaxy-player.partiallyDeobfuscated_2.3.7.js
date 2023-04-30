@@ -15161,30 +15161,6 @@
                                         };
                                         sendRequestToCdmF = function(mediaKeys, initDataType, initData, keyId) {
                                             var mediaKeySession = mediaKeys.createSession(); //MediaKeySession
-                                            //**** add custom listener ****
-                                            // session.addEventListener('message', event => {
-                                            //     const challenge = event.message;
-                                            //     const LICENSE_SERVER_URL = 'https://localhost/';
-                                            //     const xhr = new XMLHttpRequest();
-                                            //     xhr.open("POST", LICENSE_SERVER_URL, true);
-                                            //     xhr.onerror = (err) => {
-                                            //         reject(err);
-                                            //     };
-                                            //     xhr.onload = (evt) => {
-                                            //         if (xhr.status >= 200 && xhr.status < 300) {
-                                            //             const license = evt.target.response;
-                                            //             resolve(license);
-                                            //         } else {
-                                            //             const error = new Error(
-                                            //                 "getLicense request finished with a " + `${xhr.status} HTTP error`
-                                            //             );
-                                            //             reject(error);
-                                            //         }
-                                            //     };
-                                            //     xhr.responseType = "arraybuffer";
-                                            //     xhr.send(challenge);
-                                            // })
-                                            //*******
                                             mediaKeySession.keyId = keyId;
                                             mediaKeySession.addEventListener("message", mediaKeySessionMessageEvent);
                                             mediaKeySession.generateRequest(initDataType, initData).catch((function() {
